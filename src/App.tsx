@@ -1,3 +1,10 @@
+import { Header } from "./components/Header";
+import { Event } from "./pages/Event";
+
 export const App = () => {
-  return <h1 className="text-2xl">opa</h1>;
+  return (
+    <>
+      <Event />
+    </>
+  );
 };

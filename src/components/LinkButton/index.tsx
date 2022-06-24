@@ -1,7 +1,7 @@
 import { IconProps } from "phosphor-react";
-import { ButtonHTMLAttributes, ReactNode } from "react";
+import { ReactNode } from "react";
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends React.HTMLProps<HTMLAnchorElement> {
   children: ReactNode;
   colorScheme?: "primary" | "secondary";
   icon?: React.ForwardRefExoticComponent<
@@ -9,14 +9,14 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   >;
 }
 
-export const Button = ({
+export const LinkButton = ({
   children,
   colorScheme = "primary",
   icon: Icon,
   ...rest
 }: ButtonProps) => {
   return (
-    <button
+    <a
       {...rest}
       className={
         colorScheme === "primary"
@@ -26,6 +26,6 @@ export const Button = ({
     >
       {!!Icon && <Icon size={24} />}
       {children}
-    </button>
+    </a>
   );
 };

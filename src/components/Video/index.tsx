@@ -6,7 +6,7 @@ import {
   Image,
   Lightning,
 } from "phosphor-react";
-import { Button } from "../Button";
+import { LinkButton } from "../LinkButton";
 import { Card } from "../Card";
 
 import "@vime/core/themes/default.css";
@@ -97,10 +97,10 @@ export function Video({ slug }: VideoProps) {
             </div>
           </section>
           <section className="flex flex-col gap-4">
-            <Button icon={DiscordLogo}>Comunidade do discord</Button>
-            <Button colorScheme="secondary" icon={Lightning}>
+            <LinkButton icon={DiscordLogo}>Comunidade do discord</LinkButton>
+            <LinkButton colorScheme="secondary" icon={Lightning}>
               Acesse o desafio
-            </Button>
+            </LinkButton>
           </section>
         </div>
         <div className="gap-8 mt-20 grid grid-cols-2">

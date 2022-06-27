@@ -6,19 +6,12 @@ import { Button } from "../components/Button";
 import { gql, useMutation } from "@apollo/client";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import { useSubcriber_CreationMutation } from "../graphql/generated";
 
 interface FormData {
   name: string;
   email: string;
 }
-
-const CREATE_SUBSCRIBER_MUTATION = gql`
-  mutation subcriber_creation($name: String!, $email: String!) {
-    createSubscriber(data: { name: $name, email: $email }) {
-      id
-    }
-  }
-`;
 
 const subscribeSchema = yup.object().shape({
   name: yup.string().required("Nome é obrigatório"),
@@ -36,9 +29,7 @@ export function Subscribe() {
     resolver: yupResolver(subscribeSchema),
   });
 
-  const [createSubscriber, { data, loading }] = useMutation(
-    CREATE_SUBSCRIBER_MUTATION
-  );
+  const [createSubscriber, { data, loading }] = useSubcriber_CreationMutation();
 
   const handleSubscribe = async (data: FormData) => {
     await createSubscriber({
